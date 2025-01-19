@@ -6,13 +6,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		// Solicitar la operación
-		System.out.println("Calculadora Cuatrovientos");
-		System.out.println("1. Suma");
-		System.out.println("2. Resta");
-		System.out.println("3. Multiplicación");
-		System.out.println("4. División");
-		System.out.print("Introduce la operación (1,2,3 o 4): ");
-		String operacion = scanner.nextLine().toLowerCase();
+		String operacion = MenuInicial(scanner);
 
 		// Solicitar el primer número
 		System.out.print("Introduce el primer número: ");
@@ -42,8 +36,13 @@ public class Main {
 			break;
 			
 		case "4":
-			resultado = numero1 / numero2;
-			System.out.println("resultado: " + resultado);
+			if(numero2 == 0) {
+				System.out.println("No hay resultado, no se puede dividir por 0.");
+			}
+			else {
+				resultado = numero1 / numero2;
+				System.out.println("resultado: " + resultado);				
+			}
 			break;
 			
 		default:
@@ -51,5 +50,16 @@ public class Main {
 		}
 
 		scanner.close();
+	}
+
+	private static String MenuInicial(Scanner scanner) {
+		System.out.println("Calculadora Cuatrovientos");
+		System.out.println("1. Suma");
+		System.out.println("2. Resta");
+		System.out.println("3. Multiplicación");
+		System.out.println("4. División");
+		System.out.print("Introduce la operación (1,2,3 o 4): ");
+		String operacion = scanner.nextLine().toLowerCase();
+		return operacion;
 	}
 }
