@@ -1,10 +1,55 @@
 package org.cuatrovientos.dam.julen.calculadora;
 
+import java.util.Scanner;
+
 public class Main {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		// Solicitar la operación
+		System.out.println("Calculadora Cuatrovientos");
+		System.out.println("1. Suma");
+		System.out.println("2. Resta");
+		System.out.println("3. Multiplicación");
+		System.out.println("4. División");
+		System.out.print("Introduce la operación (1,2,3 o 4): ");
+		String operacion = scanner.nextLine().toLowerCase();
 
+		// Solicitar el primer número
+		System.out.print("Introduce el primer número: ");
+		double numero1 = scanner.nextDouble();
+
+		// Solicitar el segundo número
+		System.out.print("Introduce el segundo número: ");
+		double numero2 = scanner.nextDouble();
+
+		// Calcular el resultado
+		double resultado;
+		switch (operacion) {
+		
+		case "1":
+			resultado = numero1 + numero2;
+			System.out.println("resultado: " + resultado);
+			break;
+			
+		case "2":
+			resultado = numero1 - numero2;
+			System.out.println("resultado: " + resultado);
+			break;
+			
+		case "3":
+			resultado = numero1 * numero2;
+			System.out.println("resultado: " + resultado);
+			break;
+			
+		case "4":
+			resultado = numero1 / numero2;
+			System.out.println("resultado: " + resultado);
+			break;
+			
+		default:
+			System.out.println("Operación no válida. Por favor, elige suma, resta, multiplicacion o division.");
+		}
+
+		scanner.close();
 	}
-
 }
